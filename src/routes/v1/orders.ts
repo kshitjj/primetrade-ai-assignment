@@ -1,7 +1,7 @@
 import { Router, Response } from "express"
-import pool from "../db"
-import { authenticate, AuthRequest, isAdmin } from "../middleware/auth"
-import { orderQueue } from "../queues/orderQueue"
+import pool from "../../db"
+import { authenticate, AuthRequest, isAdmin } from "../../middleware/auth"
+import { orderQueue } from "../../queues/orderQueue"
 
 const router = Router()
 

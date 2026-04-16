@@ -1,10 +1,10 @@
 import { Router, Response } from "express"
-import pool from "../db"
-import redis from "../redis"
-import { authenticate, isAdmin, AuthRequest } from "../middleware/auth"
+import pool from "../../db"
+import redis from "../../redis"
+import { authenticate, isAdmin, AuthRequest } from "../../middleware/auth"
 import { PutObjectCommand } from "@aws-sdk/client-s3"
-import s3 from "../s3"
-import upload from "../middleware/upload"
+import s3 from "../../s3"
+import upload from "../../middleware/upload"
 
 const router = Router()
 

@@ -1,8 +1,8 @@
 import { Router, Request, Response } from "express"
 import bcrypt from "bcrypt"
 import jwt from "jsonwebtoken"
-import pool from "../db"
-import { authLimiter } from "../middleware/rateLimiter"
+import pool from "../../db"
+import { authLimiter } from "../../middleware/rateLimiter"
 
 const router = Router()
 

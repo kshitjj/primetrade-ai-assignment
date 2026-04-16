@@ -1,8 +1,8 @@
 import { Router, Response } from "express"
 import Razorpay from "razorpay"
 import crypto from "crypto"
-import pool from "../db"
-import { authenticate, AuthRequest } from "../middleware/auth"
+import pool from "../../db"
+import { authenticate, AuthRequest } from "../../middleware/auth"
 
 const razorpay = new Razorpay({
   key_id: process.env.RAZORPAY_KEY_ID as string,
