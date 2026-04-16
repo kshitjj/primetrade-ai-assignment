@@ -1,6 +1,8 @@
 import dotenv from "dotenv"
 dotenv.config()
 
+import swaggerUi from 'swagger-ui-express'
+import { swaggerSpec } from './swagger'
 import express from "express"
 import pool from "./db"
 
@@ -26,5 +28,7 @@ app.use("/api/v1/products", v1ProductsRouter)
 app.use("/api/v1/orders", v1OrdersRouter)
 app.use("/api/v1/cart", v1CartRouter)
 app.use("/api/v1/payments", v1PaymentsRouter)
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec))
 
 app.listen(3000, () => console.log("Running on port 3000"))
