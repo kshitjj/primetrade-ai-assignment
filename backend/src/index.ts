@@ -4,6 +4,7 @@ dotenv.config()
 import swaggerUi from 'swagger-ui-express'
 import { swaggerSpec } from './swagger'
 import express from "express"
+import cors from 'cors'
 import pool from "./db"
 
 // V1 routes
@@ -16,6 +17,8 @@ import v1PaymentsRouter from "./routes/v1/payments"
 import "./workers/orderWorker"
 
 const app = express()
+app.use(cors({ origin: 'http://localhost:5173' }))
+
 app.use(express.json())
 
 app.get("/", async (req, res) => {
@@ -31,4 +34,4 @@ app.use("/api/v1/payments", v1PaymentsRouter)
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec))
 
-app.listen(3000, () => console.log("Running on port 3000"))
+app.listen(process.env.API_PORT, () => console.log("Running on port " + process.env.API_PORT))

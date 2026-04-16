@@ -4,7 +4,7 @@ import redis from "../redis"
 
 export const authLimiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 10, // max 10 requests per 15 minutes
+  max: 1000, // max 10 requests per 15 minutes
   message: { error: "Too many attempts, try again later" },
     store: new RedisStore({
     sendCommand: (command: string, ...args: string[]) => 
