@@ -100,6 +100,7 @@
  *               properties:
  *                 error:
  *                   type: string
+ *                   example: Email already exists
  */
 
 /**
