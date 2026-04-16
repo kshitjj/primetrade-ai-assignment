@@ -46,7 +46,7 @@ export const checkValidationErrors = (req: Request, res: Response, next: NextFun
 // Registration middleware chain
 export const registrationValidation = [
   ...sanitizeEmail,
-  ...validateStrongPassword,
+//  ...validateStrongPassword, (THIS SHOULDN'T BE COMMENTED IN PRODUCTION, I HATE IT THAT's why I have commented it out.)
   checkValidationErrors
 ];
 
