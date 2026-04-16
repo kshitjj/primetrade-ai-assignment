@@ -83,7 +83,7 @@ RAZORPAY_KEY_SECRET=xxxx
 ```bash
 cd backend
 npm install
-npm run dev
+npm run start
 ```
 
 API runs at `http://localhost:3000`
@@ -108,7 +108,12 @@ cd backend
 make build-image
 make run-docker
 ```
-
+AND 
+```bash
+cd frontend
+make build-image
+make run-docker
+```
 ---
 
 ## API Overview
@@ -164,7 +169,7 @@ Tokens carry `id`, `email`, and `role` claims. Role-based middleware blocks non-
 
 **API versioning** — Routes are namespaced under `/api/v1/`. A v2 would be introduced as a parallel router without modifying existing endpoints, ensuring zero breaking changes for existing clients.
 
-**Caching** — Redis is integrated for session-aware caching. High-read endpoints like product listings are candidates for cache-aside pattern as traffic scales.
+**Caching** — Redis is integrated for session-aware caching. High-read endpoints like product listings are candidates for cache-aside pattern as traffic scales. (Only implemented for product look ups, but it's easy to add it to other lookups)
 
 **Async processing** — Order creation uses BullMQ queues with a dedicated worker (`orderWorker.ts`), decoupling order processing from the request lifecycle. This allows horizontal scaling of workers independently from the API.
 
@@ -185,3 +190,11 @@ The React frontend connects to the backend API and supports:
 - Cart management
 
 Admin controls are conditionally rendered based on the `role` claim decoded from the JWT.
+
+## Things that don't work yet
+- [ ] Cart (UI)
+- [ ] Connectivity between UI and backend when deployed on Kubernetes
+- [ ] Some API Features in Swagger Documentation are present but haven't been implemented because of time constraints (Pagination, filtering, etc)
+
+## Conclusion
+All in all, This was a great learning oppurtunity regardless of what happens. Also, if you have made it so far, there's also a nodemailer which mails when orders are placed.
