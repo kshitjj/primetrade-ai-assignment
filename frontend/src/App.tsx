@@ -4,6 +4,8 @@ import Register from './pages/Register'
 import Dashboard from './pages/Dashboard'
 import ProtectedRoute from './components/ProtectedRoute'
 
+console.log(import.meta.env.VITE_API_URL);
+
 export default function App() {
   return (
     <BrowserRouter>

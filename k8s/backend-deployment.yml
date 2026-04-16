@@ -1,23 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ecom-api
+  name: primetrade-backend
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: ecom-api
+      app: backend
   template:
     metadata:
       labels:
-        app: ecom-api
+        app: backend
     spec:
       containers:
-        - name: ecom-api
-          image: kshitijrajgude/ecom-api:latest
+        - name: primetrade-backend
+          image: kshitijrajgude/primetrade-assignment-backend-alpine:latest
           envFrom:
             - secretRef:
-                name: ecom-secrets
+                name: primetrade-backend-secrets
           ports:
             - containerPort: 3000
           readinessProbe:
