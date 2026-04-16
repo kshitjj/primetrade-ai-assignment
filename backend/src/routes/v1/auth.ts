@@ -3,10 +3,12 @@ import bcrypt from "bcrypt"
 import jwt from "jsonwebtoken"
 import pool from "../../db"
 import { authLimiter } from "../../middleware/rateLimiter"
+import { registrationValidation, loginValidation } from '../../middleware/validation'
 
 const router = Router()
 
-router.post("/register", authLimiter, async (req: Request, res: Response) => {
+// add middleware for sanization and validation
+router.post("/register", authLimiter, registrationValidation, async (req: Request, res: Response) => {
   try {
     const { email, password } = req.body
     const hashed = await bcrypt.hash(password, 10)
@@ -23,7 +25,7 @@ router.post("/register", authLimiter, async (req: Request, res: Response) => {
 })
 
 
-router.post("/login", authLimiter, async (req: Request, res: Response) => {
+router.post("/login", authLimiter, loginValidation, async (req: Request, res: Response) => {
   const { email, password } = req.body
   const result = await pool.query("SELECT * FROM users WHERE email = $1", [email])
   const user = result.rows[0]

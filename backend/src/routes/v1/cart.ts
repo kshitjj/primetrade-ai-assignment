@@ -18,6 +18,7 @@ router.get("/", authenticate, async (req: AuthRequest, res: Response) => {
   res.json({ items: result.rows, total })
 })
 
+// Do validation for input and sanitize it.
 // POST add to cart
 router.post("/", authenticate, async (req: AuthRequest, res: Response) => {
   const { product_id, quantity } = req.body
