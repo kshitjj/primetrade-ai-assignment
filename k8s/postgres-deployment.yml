@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgres
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: postgres
+  template:
+    metadata:
+      labels:
+        app: postgres
+    spec:
+      containers:
+        - name: postgres
+          image: postgres
+          env:
+           - name: POSTGRES_USER
+             valueFrom:
+               secretKeyRef:
+                 name: ecom-secrets
+                 key: DB_USER
+           - name: POSTGRES_PASSWORD
+             valueFrom:
+               secretKeyRef:
+                 name: ecom-secrets
+                 key: DB_PASSWORD
+           - name: POSTGRES_DB
+             valueFrom:
+                 secretKeyRef:
+                   name: ecom-secrets
+                   key: DB_NAME                     
+          ports:
+            - containerPort: 5432
+          volumeMounts:
+            - name: init-script
+              mountPath: /docker-entrypoint-initdb.d
+            - name: postgres-data
+              mountPath: /var/lib/postgresql
+      volumes:
+        - name: init-script
+          configMap:
+            name: postgres-init
+        - name: postgres-data
+          emptyDir: {}

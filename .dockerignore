@@ -1,0 +1,7 @@
+node_modules
+.env
+dist
+notes.md
+k8s/
+init.sql
+

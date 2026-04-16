@@ -1,0 +1,4 @@
+.env
+node_modules
+notes.md
+./k8s/secrets.yml
