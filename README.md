@@ -116,6 +116,24 @@ make run-docker
 ```
 ---
 
+## Kubernetes
+Make sure to have a kubernetes cluster running with a node that can allows scheduling
+
+```bash
+kubectl apply -f k8s
+```
+
+To see which port which microservice is running on use
+.
+,```bash
+kubectl get svc
+```
+
+you can now connect to connect to backend and frontend. 
+
+NOTE: i wasnt able to connect frontend to backend in Kubernetes, but individually they workd fine
+
+
 ## API Overview
 
 All routes are versioned under `/api/v1`.
