@@ -1,4 +1,4 @@
-# PrimeTrade AI — Backend Intern Assignment
+# Ecom API
 
 A full-stack e-commerce REST API with JWT authentication, role-based access control, and a React frontend. Built with Node.js, Express, PostgreSQL, Redis, and Docker.
 
