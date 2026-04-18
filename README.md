@@ -134,14 +134,13 @@ kubectl apply -f k8s
 ```
 
 To see which port which microservice is running on use
-.
-,```bash
+```bash
 kubectl get svc
 ```
 
 you can now connect to connect to backend and frontend. 
 
-NOTE: i wasnt able to connect frontend to backend in Kubernetes, but individually they workd fine
+NOTE: i wasnt able to connect frontend to backend in Kubernetes, but individually they worked fine
 
 
 ## API Overview
