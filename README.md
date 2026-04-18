@@ -14,6 +14,16 @@ A full-stack e-commerce REST API with JWT authentication, role-based access cont
 
 ---
 
+## Project Diagrams
+### Project Architecture
+<img width="3537" height="1573" alt="image" src="https://github.com/user-attachments/assets/668c979a-59b8-4962-a746-667a2cfc10cc" />
+
+### RDB Architecture
+<img width="1802" height="2146" alt="image" src="https://github.com/user-attachments/assets/aeeb6a77-05f5-4605-bd03-cc97fa9f212d" />
+The above figure is not a accurate representation as some changes were made later on.
+
+---
+
 ## Project Structure
 
 ```
